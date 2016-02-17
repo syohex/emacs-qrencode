@@ -36,9 +36,7 @@
 (defun qrencode (str &optional scale)
   (interactive
    (list (read-string "> ")))
-  (let* ((data (qrencode-encode str (or scale 10)))
-         (width (car data))
-         (qrcode (cadr data)))
+  (let ((qrcode (qrencode-encode str (or scale 10))))
     (with-current-buffer (get-buffer-create "*qrencode*")
       (read-only-mode -1)
       (erase-buffer)

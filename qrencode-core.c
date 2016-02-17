@@ -63,8 +63,7 @@ Fqrencode_encode(emacs_env *env, ptrdiff_t nargs, emacs_value args[], void *data
 	free(orig);
 	QRcode_free(qrcode);
 
-	emacs_value list_args[] = {env->make_integer(env, width), str};
-	return env->funcall(env, env->intern(env, "list"), 2, list_args);
+	return str;
 }
 
 static void
